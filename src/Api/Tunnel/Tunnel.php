@@ -14,64 +14,83 @@ class Tunnel extends Api
 {
     use HasAccount;
 
+    /**
+     * @var string
+     */
     public const CFDT = 'CFDT';
 
+    /**
+     * @var string
+     */
     public const WARP = 'WARP';
 
     /**
-     * @param  string|null     $type
+     * @var string|null
+     */
+    private string|null $type = null;
+
+    /**
+     * @param  string|null $type
+     * @return $this
+     */
+    public function type(#[ExpectedValues([Tunnel::CFDT, Tunnel::WARP])] string $type = null) : static
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
      * @param  TunnelList|null $query
      * @return Response
      */
-    public function lists(TunnelList $query = null, #[ExpectedValues([Tunnel::CFDT, Tunnel::WARP])] string $type = null) : \Illuminate\Http\Client\Response
+    public function lists(TunnelList $query = null) : Response
     {
-        return match ($type) {
-            Tunnel::CFDT => $this->adapter->get('/accounts/' . $this->getAccount() . '/cfd_tunnel', $query),
-            Tunnel::WARP => $this->adapter->get('/accounts/' . $this->getAccount() . '/warp_connector', $query),
-            default      => $this->adapter->get('/accounts/' . $this->getAccount() . '/tunnels', $query),
+        return match ($this->type) {
+            Tunnel::CFDT => $this->adapter->query($query)->get('/accounts/' . $this->getAccount() . '/cfd_tunnel'),
+            Tunnel::WARP => $this->adapter->query($query)->get('/accounts/' . $this->getAccount() . '/warp_connector'),
+            default      => $this->adapter->query($query)->get('/accounts/' . $this->getAccount() . '/tunnels'),
         };
     }
 
     /**
      * @param  string $tunnel
-     * @param  string $type
      * @return Response
      */
-    public function detail(string $tunnel, #[ExpectedValues([Tunnel::CFDT, Tunnel::WARP])] string $type) : Response
+    public function detail(string $tunnel) : Response
     {
-        return match ($type) {
+        return match ($this->type) {
             Tunnel::CFDT => $this->adapter->get('/accounts/' . $this->getAccount() . '/cfd_tunnel/' . trim($tunnel)),
             Tunnel::WARP => $this->adapter->get('/accounts/' . $this->getAccount() . '/warp_connector/' . trim($tunnel)),
         };
     }
 
     /**
-     * @param  string       $type
      * @param  TunnelCreate $body
      * @return Response
      */
-    public function create(TunnelCreate $body, #[ExpectedValues([Tunnel::CFDT, Tunnel::WARP])] string $type) : Response
+    public function create(TunnelCreate $body) : Response
     {
-        $body->set('type', $type);
+        $body->set('type', $this->type);
 
-        return match ($type) {
-            Tunnel::CFDT => $this->adapter->post('/accounts/' . $this->getAccount() . '/cfd_tunnel', $body),
-            Tunnel::WARP => $this->adapter->post('/accounts/' . $this->getAccount() . '/warp_connector', $body),
+        return match ($this->type) {
+            Tunnel::CFDT => $this->adapter->body($body)->post('/accounts/' . $this->getAccount() . '/cfd_tunnel'),
+            Tunnel::WARP => $this->adapter->body($body)->post('/accounts/' . $this->getAccount() . '/warp_connector'),
         };
     }
 
     /**
      * Updates an existing Cloudflare/Warp Connector Tunnel.
      *
-     * @param  string       $type
+     * @param  string       $tunnel
      * @param  TunnelUpdate $body
      * @return Response
      */
-    public function update(TunnelUpdate $body, #[ExpectedValues([Tunnel::CFDT, Tunnel::WARP])] string $type) : Response
+    public function update(string $tunnel, TunnelUpdate $body) : Response
     {
-        return match ($type) {
-            Tunnel::CFDT => $this->adapter->patch('/accounts/' . $this->getAccount() . '/cfd_tunnel', $body),
-            Tunnel::WARP => $this->adapter->patch('/accounts/' . $this->getAccount() . '/warp_connector', $body),
+        return match ($this->type) {
+            Tunnel::CFDT => $this->adapter->body($body)->patch('/accounts/' . $this->getAccount() . '/cfd_tunnel/' . trim($tunnel)),
+            Tunnel::WARP => $this->adapter->body($body)->patch('/accounts/' . $this->getAccount() . '/warp_connector/' . trim($tunnel)),
         };
     }
 
@@ -79,12 +98,11 @@ class Tunnel extends Api
      * Deletes a Cloudflare/Warp Tunnel from an account.
      *
      * @param  string $tunnel
-     * @param  string $type
      * @return Response
      */
-    public function delete(string $tunnel, #[ExpectedValues([Tunnel::CFDT, Tunnel::WARP])] string $type) : Response
+    public function delete(string $tunnel) : Response
     {
-        return match ($type) {
+        return match ($this->type) {
             Tunnel::CFDT => $this->adapter->delete('/accounts/' . $this->getAccount() . '/cfd_tunnel/' . trim($tunnel)),
             Tunnel::WARP => $this->adapter->delete('/accounts/' . $this->getAccount() . '/warp_connector/' . trim($tunnel)),
         };

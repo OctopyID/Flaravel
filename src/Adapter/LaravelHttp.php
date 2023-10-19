@@ -12,6 +12,19 @@ use Octopy\Flaravel\Contracts\Auth;
 
 class LaravelHttp implements Adapter
 {
+    /**
+     * @var Body|null
+     */
+    protected Body|null $body = null;
+
+    /**
+     * @var Query|null
+     */
+    protected Query|null $query = null;
+
+    /**
+     * @var PendingRequest
+     */
     protected PendingRequest $request;
 
     /**
@@ -28,58 +41,69 @@ class LaravelHttp implements Adapter
     }
 
     /**
-     * @param  string     $path
+     * @param  Body $body
+     * @return $this
+     */
+    public function body(Body $body) : static
+    {
+        $this->body = $body;
+
+        return $this;
+    }
+
+    /**
      * @param  Query|null $query
-     * @return Response
+     * @return $this
      */
-    public function get(string $path, Query $query = null) : Response
+    public function query(Query $query = null) : static
     {
-        if (! $query) {
-            $query = new Query;
-        }
+        $this->query = $query;
 
-        return $this->request->get($this->trim($path), $query->toArray());
+        return $this;
     }
 
     /**
-     * @param  string    $path
-     * @param  Body|null $body
+     * @param  string $url
      * @return Response
      */
-    public function post(string $path, Body $body = null) : Response
+    public function get(string $url) : Response
     {
-        if (! $body) {
-            $body = new Body;
-        }
-
-        return $this->request->post($this->trim($path), $body->toArray());
+        return $this->request->get($this->trim($url), $this->query?->toArray());
     }
 
     /**
-     * @param  string    $string
-     * @param  Body|null $body
+     * @param  string $url
      * @return Response
      */
-    public function patch(string $string, Body $body = null) : Response
+    public function post(string $url) : Response
     {
-        return $this->request->patch($this->trim($string), $body->toArray());
+        return $this->request->post($this->trim($url), $this->body?->toArray());
     }
 
     /**
-     * @param  string $string
+     * @param  string $url
      * @return Response
      */
-    public function delete(string $string) : Response
+    public function patch(string $url) : Response
     {
-        return $this->request->delete($this->trim($string));
+        return $this->request->patch($this->trim($url), $this->body?->toArray());
     }
 
     /**
-     * @param  string $path
+     * @param  string $url
+     * @return Response
+     */
+    public function delete(string $url) : Response
+    {
+        return $this->request->delete($this->trim($url));
+    }
+
+    /**
+     * @param  string $url
      * @return string
      */
-    private function trim(string $path) : string
+    private function trim(string $url) : string
     {
-        return trim(preg_replace('/\/+/', '/', $path));
+        return trim(preg_replace('/\/+/', '/', $url));
     }
 }

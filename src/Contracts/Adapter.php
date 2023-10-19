@@ -14,29 +14,38 @@ interface Adapter
     public function __construct(Auth $auth);
 
     /**
-     * @param  string     $path
+     * @param  Body $body
+     * @return $this
+     */
+    public function body(Body $body) : static;
+
+    /**
      * @param  Query|null $query
-     * @return Response
+     * @return $this
      */
-    public function get(string $path, Query $query = null) : Response;
+    public function query(Query $query = null) : static;
 
     /**
-     * @param  string    $path
-     * @param  Body|null $body
+     * @param  string $url
      * @return Response
      */
-    public function post(string $path, Body $body = null) : Response;
+    public function get(string $url) : Response;
 
     /**
-     * @param  string    $string
-     * @param  Body|null $body
+     * @param  string $url
      * @return Response
      */
-    public function patch(string $string, Body $body = null) : Response;
+    public function post(string $url) : Response;
 
     /**
-     * @param  string $string
+     * @param  string $url
      * @return Response
      */
-    public function delete(string $string) : Response;
+    public function patch(string $url) : Response;
+
+    /**
+     * @param  string $url
+     * @return Response
+     */
+    public function delete(string $url) : Response;
 }

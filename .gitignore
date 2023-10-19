@@ -1,0 +1,10 @@
+# IDE
+.idea
+
+# PROJECT
+/vendor
+composer.lock
+.phpunit.cache
+
+# MISC
+.DS_Store

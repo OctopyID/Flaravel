@@ -1,0 +1,45 @@
+{
+    "name": "octopyid/flaravel",
+    "description": "PHP binding for v4 of the Cloudflare Client API.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Supian M",
+            "email": "supianidz@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.8"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^7.8",
+        "orchestra/testbench": "^8.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "Octopy\\Cloudflare\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Octopy\\Cloudflare\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Octopy\\Cloudflare\\Providers\\CloudflareServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/testbench package:test"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

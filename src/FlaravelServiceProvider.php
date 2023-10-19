@@ -1,6 +1,6 @@
 <?php
 
-namespace Octopy\Flaravel\Providers;
+namespace Octopy\Flaravel;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -24,7 +24,7 @@ class FlaravelServiceProvider extends ServiceProvider
     public function register() : void
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../../config/cloudflare.php', 'cloudflare'
+            __DIR__ . '/../config/cloudflare.php', 'cloudflare'
         );
     }
 }

@@ -15,7 +15,7 @@ class TunnelBodyTest extends TestCase
     {
         $body = new TunnelCreate;
 
-        $body->type(TunnelCreate::TYPE_CFDT)->name('blog')->configSrc(TunnelCreate::LOCAL)->tunnelSecret('secret');
+        $body->set('type', TunnelCreate::TYPE_CFDT)->name('blog')->configSrc(TunnelCreate::LOCAL)->tunnelSecret('secret');
 
         $this->assertArrayHasKey('name', $body->toArray());
         $this->assertArrayHasKey('config_src', $body->toArray());
@@ -29,7 +29,7 @@ class TunnelBodyTest extends TestCase
     public function validateWarpTunnel() : void
     {
         $body = new TunnelCreate;
-        $body->type(TunnelCreate::TYPE_WARP)->name('blog')->configSrc(TunnelCreate::LOCAL)->tunnelSecret('secret');
+        $body->set('type', TunnelCreate::TYPE_WARP)->name('blog')->configSrc(TunnelCreate::LOCAL)->tunnelSecret('secret');
 
         $this->assertArrayHasKey('name', $body->toArray());
 

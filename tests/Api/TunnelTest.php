@@ -32,11 +32,11 @@ class TunnelTest extends TestCase
 
         $this->assertSame('blog', $response->json('result.0.name'));
 
-        $response = $tunnel->account('123456789')->lists(Tunnel::CFDT);
+        $response = $tunnel->account('123456789')->lists(type: Tunnel::CFDT);
 
         $this->assertSame('blog', $response->json('result.0.name'));
 
-        $response = $tunnel->account('123456789')->lists(Tunnel::WARP);
+        $response = $tunnel->account('123456789')->lists(type: Tunnel::WARP);
 
         $this->assertSame('blog', $response->json('result.0.name'));
     }

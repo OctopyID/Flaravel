@@ -7,7 +7,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Http;
 use Octopy\Flaravel\Adapter\LaravelHttp;
 use Octopy\Flaravel\Auth\APIKey;
-use Octopy\Flaravel\Providers\FlaravelServiceProvider;
+use Octopy\Flaravel\FlaravelServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {

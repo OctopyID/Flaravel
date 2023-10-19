@@ -32,15 +32,6 @@ class TunnelCreate extends Body
     ];
 
     /**
-     * @param  string $type
-     * @return $this
-     */
-    public function type(#[ExpectedValues([self::TYPE_CFDT, self::TYPE_WARP])] string $type) : static
-    {
-        return $this->set('type', $type);
-    }
-
-    /**
      * A user-friendly name for the tunnel.
      *
      * @param  string $name

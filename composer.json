@@ -30,7 +30,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Octopy\\Flaravel\\Providers\\FlaravelServiceProvider"
+                "Octopy\\Flaravel\\FlaravelServiceProvider"
             ]
         }
     },

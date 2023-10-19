@@ -1,6 +1,6 @@
 <?php
 
-namespace Octopy\Cloudflare\Builder;
+namespace Octopy\Flaravel\Builder;
 
 use Illuminate\Contracts\Support\Arrayable;
 

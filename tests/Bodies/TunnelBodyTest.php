@@ -1,9 +1,9 @@
 <?php
 
-namespace Octopy\Cloudflare\Tests\Bodies;
+namespace Octopy\Flaravel\Tests\Bodies;
 
-use Octopy\Cloudflare\Api\Tunnel\Body\TunnelCreate;
-use Octopy\Cloudflare\Tests\TestCase;
+use Octopy\Flaravel\Api\Tunnel\Body\TunnelCreate;
+use Octopy\Flaravel\Tests\TestCase;
 
 class TunnelBodyTest extends TestCase
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Octopy\Cloudflare\Tests\Auth;
+namespace Octopy\Flaravel\Tests\Auth;
 
-use Octopy\Cloudflare\Auth\APIKey;
-use Octopy\Cloudflare\Tests\TestCase;
+use Octopy\Flaravel\Auth\APIKey;
+use Octopy\Flaravel\Tests\TestCase;
 
 class APIKeyTest extends TestCase
 {

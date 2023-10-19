@@ -1,10 +1,10 @@
 <?php
 
-namespace Octopy\Cloudflare\Api\Tunnel\Query;
+namespace Octopy\Flaravel\Api\Tunnel\Query;
 
 use Illuminate\Support\Carbon;
-use Octopy\Cloudflare\Builder\Query;
-use Octopy\Cloudflare\Concerns\HasPagination;
+use Octopy\Flaravel\Builder\Query;
+use Octopy\Flaravel\Concerns\HasPagination;
 
 class TunnelList extends Query
 {

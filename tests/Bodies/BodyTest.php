@@ -1,11 +1,11 @@
 <?php
 
-namespace Octopy\Cloudflare\Tests\Bodies;
+namespace Octopy\Flaravel\Tests\Bodies;
 
 use Illuminate\Validation\ValidationException;
-use Octopy\Cloudflare\Tests\TestCase;
+use Octopy\Flaravel\Tests\TestCase;
 
-class Body extends \Octopy\Cloudflare\Builder\Body
+class Body extends \Octopy\Flaravel\Builder\Body
 {
     //
 }

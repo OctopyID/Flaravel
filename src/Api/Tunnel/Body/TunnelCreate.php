@@ -1,9 +1,9 @@
 <?php
 
-namespace Octopy\Cloudflare\Api\Tunnel\Body;
+namespace Octopy\Flaravel\Api\Tunnel\Body;
 
 use JetBrains\PhpStorm\ExpectedValues;
-use Octopy\Cloudflare\Builder\Body;
+use Octopy\Flaravel\Builder\Body;
 
 class TunnelCreate extends Body
 {

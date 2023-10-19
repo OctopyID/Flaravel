@@ -1,6 +1,6 @@
 <?php
 
-namespace Octopy\Cloudflare\Concerns;
+namespace Octopy\Flaravel\Concerns;
 
 trait HasAccount
 {

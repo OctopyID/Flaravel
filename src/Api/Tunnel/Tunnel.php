@@ -1,14 +1,14 @@
 <?php
 
-namespace Octopy\Cloudflare\Api\Tunnel;
+namespace Octopy\Flaravel\Api\Tunnel;
 
 use Illuminate\Http\Client\Response;
 use JetBrains\PhpStorm\ExpectedValues;
-use Octopy\Cloudflare\Api\Api;
-use Octopy\Cloudflare\Api\Tunnel\Body\TunnelCreate;
-use Octopy\Cloudflare\Api\Tunnel\Body\TunnelUpdate;
-use Octopy\Cloudflare\Api\Tunnel\Query\TunnelList;
-use Octopy\Cloudflare\Concerns\HasAccount;
+use Octopy\Flaravel\Api\Api;
+use Octopy\Flaravel\Api\Tunnel\Body\TunnelCreate;
+use Octopy\Flaravel\Api\Tunnel\Body\TunnelUpdate;
+use Octopy\Flaravel\Api\Tunnel\Query\TunnelList;
+use Octopy\Flaravel\Concerns\HasAccount;
 
 class Tunnel extends Api
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Octopy\Cloudflare\Contracts;
+namespace Octopy\Flaravel\Contracts;
 
 interface Auth
 {

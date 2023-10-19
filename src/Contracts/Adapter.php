@@ -1,10 +1,10 @@
 <?php
 
-namespace Octopy\Cloudflare\Contracts;
+namespace Octopy\Flaravel\Contracts;
 
 use Illuminate\Http\Client\Response;
-use Octopy\Cloudflare\Builder\Body;
-use Octopy\Cloudflare\Builder\Query;
+use Octopy\Flaravel\Builder\Body;
+use Octopy\Flaravel\Builder\Query;
 
 interface Adapter
 {

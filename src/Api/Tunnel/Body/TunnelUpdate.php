@@ -1,8 +1,8 @@
 <?php
 
-namespace Octopy\Cloudflare\Api\Tunnel\Body;
+namespace Octopy\Flaravel\Api\Tunnel\Body;
 
-use Octopy\Cloudflare\Builder\Body;
+use Octopy\Flaravel\Builder\Body;
 
 class TunnelUpdate extends Body
 {

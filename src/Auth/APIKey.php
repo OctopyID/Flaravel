@@ -1,8 +1,8 @@
 <?php
 
-namespace Octopy\Cloudflare\Auth;
+namespace Octopy\Flaravel\Auth;
 
-use Octopy\Cloudflare\Contracts\Auth;
+use Octopy\Flaravel\Contracts\Auth;
 
 class APIKey implements Auth
 {

@@ -1,14 +1,14 @@
 <?php
 
-namespace Octopy\Cloudflare\Adapter;
+namespace Octopy\Flaravel\Adapter;
 
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
-use Octopy\Cloudflare\Builder\Body;
-use Octopy\Cloudflare\Builder\Query;
-use Octopy\Cloudflare\Contracts\Adapter;
-use Octopy\Cloudflare\Contracts\Auth;
+use Octopy\Flaravel\Builder\Body;
+use Octopy\Flaravel\Builder\Query;
+use Octopy\Flaravel\Contracts\Adapter;
+use Octopy\Flaravel\Contracts\Auth;
 
 class LaravelHttp implements Adapter
 {

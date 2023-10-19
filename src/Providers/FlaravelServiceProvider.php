@@ -1,10 +1,10 @@
 <?php
 
-namespace Octopy\Cloudflare\Providers;
+namespace Octopy\Flaravel\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class CloudflareServiceProvider extends ServiceProvider
+class FlaravelServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.

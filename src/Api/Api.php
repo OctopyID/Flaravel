@@ -1,10 +1,10 @@
 <?php
 
-namespace Octopy\Cloudflare\Api;
+namespace Octopy\Flaravel\Api;
 
-use Octopy\Cloudflare\Adapter\LaravelHttp;
-use Octopy\Cloudflare\Contracts\Adapter;
-use Octopy\Cloudflare\Contracts\Auth;
+use Octopy\Flaravel\Adapter\LaravelHttp;
+use Octopy\Flaravel\Contracts\Adapter;
+use Octopy\Flaravel\Contracts\Auth;
 
 abstract class Api
 {

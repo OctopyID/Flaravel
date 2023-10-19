@@ -1,9 +1,9 @@
 <?php
 
-namespace Octopy\Cloudflare\Tests\Api;
+namespace Octopy\Flaravel\Tests\Api;
 
-use Octopy\Cloudflare\Api\Tunnel\Tunnel;
-use Octopy\Cloudflare\Tests\TestCase;
+use Octopy\Flaravel\Api\Tunnel\Tunnel;
+use Octopy\Flaravel\Tests\TestCase;
 
 class TunnelTest extends TestCase
 {

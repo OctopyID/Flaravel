@@ -1,13 +1,13 @@
 <?php
 
-namespace Octopy\Cloudflare\Tests;
+namespace Octopy\Flaravel\Tests;
 
 use GuzzleHttp\Promise\PromiseInterface;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Http;
-use Octopy\Cloudflare\Adapter\LaravelHttp;
-use Octopy\Cloudflare\Auth\APIKey;
-use Octopy\Cloudflare\Providers\CloudflareServiceProvider;
+use Octopy\Flaravel\Adapter\LaravelHttp;
+use Octopy\Flaravel\Auth\APIKey;
+use Octopy\Flaravel\Providers\FlaravelServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
@@ -18,7 +18,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
     public function getPackageProviders($app) : array
     {
         return [
-            CloudflareServiceProvider::class,
+            FlaravelServiceProvider::class,
         ];
     }
 

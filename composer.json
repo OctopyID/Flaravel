@@ -19,18 +19,18 @@
     },
     "autoload": {
         "psr-4": {
-            "Octopy\\Cloudflare\\": "src/"
+            "Octopy\\Flaravel\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Octopy\\Cloudflare\\Tests\\": "tests/"
+            "Octopy\\Flaravel\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Octopy\\Cloudflare\\Providers\\CloudflareServiceProvider"
+                "Octopy\\Flaravel\\Providers\\FlaravelServiceProvider"
             ]
         }
     },
